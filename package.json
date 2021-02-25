@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "mongoose": "^5.11.18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "todo-list-app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/queeniewilliams/todo-list-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/queeniewilliams/todo-list-app/issues"
+  },
+  "homepage": "https://github.com/queeniewilliams/todo-list-app#readme"
+}
