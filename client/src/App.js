@@ -68,7 +68,7 @@ export default class App extends Component {
               // incrementPage={this.incrementPage}
               // decrementPage={this.decrementPage}
             />
-            {/* <Route path="/todolist" component={TodoList} /> */}
+            <Route path="/todolist" component={TodoList} />
           </Switch>
         </main>
       </div>
