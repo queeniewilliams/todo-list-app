@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import UserInfo from '../components/UserInfo'
+import Footer from '../components/Footer'
 
 export default class Home extends Component {
   render() {
@@ -12,9 +13,8 @@ export default class Home extends Component {
         <header>
           <img
             className="logo"
-            src="https://i.ibb.co/1X3GL9M/slacker-Logo-1.png"
-            width="250px"
-            height="250px"
+            src="https://i.ibb.co/xS8bjGj/slacker.png"
+            width="100px"
           />
           <NavLink
             className="signupBtn"
@@ -100,76 +100,7 @@ export default class Home extends Component {
             </p>
           </section>
         </main>
-        <footer>
-          <div>
-            <ul>
-              <li>
-                <NavLink
-                  to="/signup"
-                  style={{ textDecoration: 'none', color: 'white' }}
-                >
-                  SIGN UP
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/login"
-                  style={{ textDecoration: 'none', color: 'white' }}
-                >
-                  LOG IN
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/todolist"
-                  style={{ textDecoration: 'none', color: 'white' }}
-                >
-                  TO-DO LIST
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to=""
-                  style={{ textDecoration: 'none', color: 'white' }}
-                >
-                  ABOUT
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <form className="contact">
-              <h4>GET IN TOUCH</h4>
-              NAME:
-              <br></br>
-              <input
-                type="text"
-                name="name"
-                value={name}
-                onChange={handleChange}
-              />
-              <br></br>
-              <br></br>
-              EMAIL:
-              <br></br>
-              <input type="text" value={email} onChange={handleChange} />
-              <br></br>
-              <br></br>
-              MESSAGE:
-              <br></br>
-              <input
-                type="text"
-                name="message"
-                value={email}
-                onChange={handleChange}
-                style={{ padding: '100px' }}
-              />
-              <br></br>
-              <br></br>
-              <button className="submit">SUBMIT</button>
-            </form>
-          </div>
-        </footer>
+        <Footer name={name} email={email} />
       </div>
     )
   }

@@ -4,14 +4,7 @@ import Modal from 'react-modal'
 
 export default class SignUp extends Component {
   render() {
-    const {
-      name,
-      email,
-      handleChange,
-      currentPage,
-      incrementPage,
-      decrementPage
-    } = this.props
+    const { name, email, handleChange } = this.props
     return (
       <div>
         <img
@@ -20,14 +13,7 @@ export default class SignUp extends Component {
           width="100%"
         />
         <div className="signupform">
-          <UserInfo
-            currentPage={currentPage}
-            handleChange={handleChange}
-            incrementPage={incrementPage}
-            decrementPage={decrementPage}
-            name={name}
-            email={email}
-          />
+          <UserInfo handleChange={handleChange} name={name} email={email} />
         </div>
       </div>
     )

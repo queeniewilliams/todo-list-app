@@ -4,13 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export default class UserInfo extends Component {
   render() {
-    const {
-      name,
-      email,
-      handleChange
-      // incrementPage,
-      // decrementPage
-    } = this.props
+    const { name, email, handleChange } = this.props
 
     return (
       <div className="info">

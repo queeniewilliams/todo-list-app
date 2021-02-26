@@ -3,8 +3,8 @@ const Schema = mongoose.Schema
 
 const Todo = new Schema(
   {
-    listItem: { type: String, required: true }
-    // deadline: { type: String, required: false }
+    listItem: { type: String, required: true },
+    deadline: { type: String, required: false }
   },
   {
     timestamps: true
