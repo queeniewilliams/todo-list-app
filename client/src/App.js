@@ -5,7 +5,8 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import TodoList from './pages/TodoList'
 import LogIn from './pages/LogIn'
-import Modal from 'react-dom'
+import { Modal } from 'react-bootstrap'
+import axios from 'axios'
 
 export default class App extends Component {
   constructor() {
@@ -14,28 +15,31 @@ export default class App extends Component {
       currentPage: 0,
       name: '',
       email: '',
-      modalIsOpen: false
+      password: '',
+      show: false
     }
-    this.openModal = this.openModal.bind(this)
-    this.afterOpenModal = this.afterOpenModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
   }
-
   openModal() {
-    this.setState({ modalIsOpen: true })
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00'
+    console.log('show')
+    this.setState({ show: true })
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false })
+    this.setState({ show: false })
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  login = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/api/user?email=${this.state.email}&password=${this.state.password}`
+      )
+    } catch {
+      console.log('error')
+    }
   }
 
   // incrementPage = () => {
@@ -55,10 +59,9 @@ export default class App extends Component {
               path="/"
               component={Home}
               openModal={this.openModal}
-              afterOpenModal={this.afterOpenModal}
               closeModal={this.closeModal}
             />
-            <Route path="/login" component={LogIn} />
+            <Route path="/login" component={LogIn} login={this.login} />
             <Route
               path="/signup"
               component={SignUp}

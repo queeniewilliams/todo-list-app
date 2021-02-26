@@ -1,17 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import Modal from 'react-dom'
+import { Modal } from 'react-bootstrap'
+import UserInfo from '../components/UserInfo'
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
-}
 export default class Home extends Component {
   render() {
     return (
@@ -23,13 +14,9 @@ export default class Home extends Component {
             width="250px"
             height="250px"
           />
-          <NavLink
-            className="signupBtn"
-            to="/signup"
-            style={{ textDecoration: 'none', color: 'white' }}
-          >
+          <button className="signupBtn" onClick={this.props.openModal}>
             TRY FOR FREE
-          </NavLink>
+          </button>
 
           <NavLink
             className="loginBtn"
@@ -72,24 +59,6 @@ export default class Home extends Component {
               height="700px"
             />
           </section>
-          {/* <button onClick={this.props.openModal}>Try for Free</button> */}
-          {/* <Modal
-            isOpen={this.props.modalIsOpen}
-            onAfterOpen={this.props.afterOpenModal}
-            onRequestClose={this.props.closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-            <button onClick={this.props.closeModal}>close</button>
-            <div>I am a modal</div>
-            <form>
-              <input />
-              <button>tab navigation</button>
-              <button>stays</button>
-              <button>inside</button>
-              <button>the modal</button>
-            </form>
-          </Modal> */}
         </main>
       </div>
     )
