@@ -1,76 +1,75 @@
 import React, { Component } from 'react'
-import Form from '../components/Form'
-import axios from "axios"
+import axios from 'axios'
 
 export default class TodoList extends Component {
-    constructor(){
-        super()
-        this.state= {
-            newTodo: "",
-            todoList: [],
-            deadline: ""
-        }
+  constructor() {
+    super()
+    this.state = {
+      listItem: '',
+      todoList: [],
+      deadline: ''
     }
+  }
 
-    componentDidMount() {
-        this.getAllTodos()
+  componentDidMount() {
+    this.getAllTodos()
+  }
+
+  getAllTodos = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/api/todos')
+      console.log(response)
+    } catch (error) {
+      console.log('error')
     }
+  }
 
-    getAllTodos = async () => {
-        try{
-        console.log('get all todos firing')
-        const response = await axios.get('http://localhost:3001/api/todos')
-        console.log(response)
-        } catch (error) {
-         console.log('error')
-        }
+  handleChange = (event) => {
+    this.setState({ listItem: event.target.value })
+  }
+
+  handleDeadline = (e) => {
+    this.setState({ deadline: e.target.value })
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      console.log('submitted firing off')
+      //axios call
+      let response = await axios.post('http://localhost:3001/api/todos/add', {
+        listItem: this.state.listItem
+      })
+      console.log(response.data)
+      return response.data
+    } catch (error) {
+      console.log(error)
     }
+  }
 
-    handleChange= (event) =>{
-        console.log(event.target.value)
-        this.setState({newTodo: event.target.value })
-    }
-
-    handleDeadline= (e) => {
-        this.setState({deadline: e.target.value})
-    }
-    
-
-    handleSubmit= async () =>{
-        try{
-            console.log('submitted firing off')
-            //axios call 
-            let response = await axios.post('http://localhost:3001/api/todos')
-            console.log(response)
-        } catch (error){
-            console.log(error)
-        }
-    } 
-
-
-render() {
-    console.log(this.state.newTodo)
-    return( 
-        <div> 
+  render() {
+    console.log(this.state.listItem)
+    return (
+      <div>
         <h1>todolist</h1>
-        <form onSubmit= {this.handleSubmit}>
-            <input
+        <form onSubmit={this.handleSubmit}>
+          <input
             type="text"
-            name="todo"
+            name="listItem"
             placeholder="add todo here"
-            value={this.state.newTodo}
+            value={this.state.listItem}
             onChange={this.handleChange}
-            />
-            <input 
+          />
+          <input
             type="text"
             name="deadline"
             placeholder="deadline"
             value={this.state.deadline}
             onChange={this.handleDeadline}
-            />
-            <input type="submit" value="submit"/>
+          />
+          <input type="submit" value="submit" />
         </form>
-    </div>
+      </div>
     )
-}
+  }
 }
