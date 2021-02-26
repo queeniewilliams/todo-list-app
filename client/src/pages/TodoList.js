@@ -3,6 +3,7 @@ import axios from 'axios'
 import ListItem from '../components/ListItem'
 import Footer from '../components/Footer'
 import { NavLink } from 'react-router-dom'
+import BASE_URL from '../globals'
 
 export default class TodoList extends Component {
   constructor() {
@@ -16,7 +17,7 @@ export default class TodoList extends Component {
 
   getAllTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/todos')
+      const response = await axios.get(BASE_URL)
     } catch (error) {
       console.log('error')
     }
@@ -34,7 +35,7 @@ export default class TodoList extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      let response = await axios.post('http://localhost:3001/api/todos/add', {
+      let response = await axios.post(BASE_URL, {
         listItem: this.state.listItem,
         deadline: this.state.deadline
       })
