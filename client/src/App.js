@@ -13,16 +13,9 @@ export default class App extends Component {
     this.state = {
       currentPage: 0,
       name: '',
-      email: '',
+      email: ''
     }
   }
-
-  // incrementPage = () => {
-  //   this.setState((prevState) => ({ currentPage: prevState.currentPage + 1 }))
-  // }
-  // decrementPage = () => {
-  //   this.setState((prevState) => ({ currentPage: prevState.currentPage - 1 }))
-  // }
 
   render() {
     return (
@@ -37,13 +30,12 @@ export default class App extends Component {
               closeModal={this.closeModal}
             />
             <Route path="/login" component={LogIn} />
+            <Route path="/signup" component={SignUp} />
             <Route
-              path="/signup"
-              component={SignUp}
-              // incrementPage={this.incrementPage}
-              // decrementPage={this.decrementPage}
+              path="/todolist"
+              component={TodoList}
+              onChange={this.handleChange}
             />
-            <Route path="/todolist" component={TodoList} onChange={this.handleChange}/>
           </Switch>
         </main>
       </div>

@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import ListItem from '../components/ListItem'
+import Footer from '../components/Footer'
+import { NavLink } from 'react-router-dom'
+
 export default class TodoList extends Component {
   constructor() {
     super()
@@ -9,24 +13,18 @@ export default class TodoList extends Component {
       deadline: ''
     }
   }
+
   getAllTodos = async () => {
     try {
       const response = await axios.get('http://localhost:3001/api/todos')
-      console.log(response)
     } catch (error) {
       console.log('error')
     }
   }
 
-  addItem = (e) => {
-    e.preventDefault()
-    const newArray = this.state.todoListArray
-    newArray.push(this.state.newItem)
-    this.setState({ newItem: '', todoListArray: newArray })
-  }
   clearlist(e) {
     this.setState({
-      newArray: []
+      todoList: []
     })
   }
 
@@ -36,26 +34,37 @@ export default class TodoList extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      console.log('submitted firing off')
-      //axios call
       let response = await axios.post('http://localhost:3001/api/todos/add', {
         listItem: this.state.listItem
       })
-      console.log(response.data)
+      const newArray = this.state.todoList
+      newArray.push({
+        listItem: this.state.listItem,
+        deadline: this.state.deadline
+      })
+      this.setState({ listItem: '', deadline: '', todoList: newArray })
       return response.data
     } catch (error) {
       console.log(error)
     }
   }
+  handleDeadline = (e) => {
+    this.setState({ deadline: e.target.value })
+  }
+
   render() {
-    let todoItems = this.props.thelist.map((item, index) => (
-      <listItem doThis={item} key={'todo' + index} />
-    ))
-    console.log(this.state.listItem)
+    const { name, email, handleChange } = this.props
     return (
-      <div>
-        <h1>todolist</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="todomain">
+        <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
+          <img
+            className="logo"
+            src="https://i.ibb.co/xS8bjGj/slacker.png"
+            width="100px"
+          />
+        </NavLink>
+        <h1 className="todoTitle">Project Planning</h1>
+        <form onSubmit={this.handleSubmit} className="todoform">
           <input
             type="text"
             name="listItem"
@@ -70,10 +79,24 @@ export default class TodoList extends Component {
             value={this.state.deadline}
             onChange={this.handleDeadline}
           />
-          <button onClick={(e) => this.additem(e)}>Add item!</button>
-          <input type="submit" value="submit" />
+          <input
+            type="submit"
+            value="submit"
+            style={{ backgroundColor: 'orange' }}
+          />
         </form>
-        <button onClick={(e) => this.clearlist(e)}>Clear list!</button>
+        <button className="clear" onClick={(e) => this.clearlist(e)}>
+          Clear list!
+        </button>
+        <div className="container">
+          {this.state.todoList.map((item, index) => (
+            <ListItem
+              doThis={item.listItem}
+              deadline={item.deadline}
+              key={'todo' + index}
+            />
+          ))}
+        </div>
       </div>
     )
   }
