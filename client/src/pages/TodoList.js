@@ -11,10 +11,6 @@ export default class TodoList extends Component {
     }
   }
 
-  componentDidMount() {
-    this.getAllTodos()
-  }
-
   getAllTodos = async () => {
     try {
       const response = await axios.get('http://localhost:3001/api/todos')
@@ -26,10 +22,6 @@ export default class TodoList extends Component {
 
   handleChange = (event) => {
     this.setState({ listItem: event.target.value })
-  }
-
-  handleDeadline = (e) => {
-    this.setState({ deadline: e.target.value })
   }
 
   handleSubmit = async (e) => {
