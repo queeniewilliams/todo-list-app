@@ -34,12 +34,12 @@ export default class SignUp extends Component {
           />
           <br></br>
           <div>
-            {/* <NavLink
+            <NavLink
               to="/todolist"
               style={{ textDecoration: 'none', color: 'black' }}
-            > */}
-            <button>SIGN IN</button>
-            {/* </NavLink> */}
+            >
+              Sign In
+            </NavLink>
           </div>
         </form>
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
 export default class TodoList extends Component {
 constructor() {
     super()
@@ -9,16 +8,14 @@ constructor() {
     todoList: [],
     deadline: ''
     }
-}
+  getAllTodos = async () => {
 
-getAllTodos = async () => {
     try {
     const response = await axios.get('http://localhost:3001/api/todos')
     console.log(response)
     } catch (error) {
     console.log('error')
     }
-}
 
 addItem = (e) => {
     e.preventDefault()
@@ -31,11 +28,11 @@ clearlist(e){
         newArray:[]
     })
 }
-handleChange = (event) => {
-    this.setState({ listItem: event.target.value })
-}
 
-handleSubmit = async (e) => {
+  handleChange = (event) => {
+    this.setState({ listItem: event.target.value })
+  }
+  handleSubmit = async (e) => {
     e.preventDefault()
     try {
     console.log('submitted firing off')
@@ -48,8 +45,6 @@ handleSubmit = async (e) => {
     } catch (error) {
     console.log(error)
     }
-}
-
 render() {
     let todoItems= this.props.thelist.map((item,index) =>(
         <listItem doThis={item} key={'todo'+ index}/>
