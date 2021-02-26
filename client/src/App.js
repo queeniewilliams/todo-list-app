@@ -29,6 +29,7 @@ export default class App extends Component {
   }
 
   handleChange = (e) => {
+    console.log(e.target.value)
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -68,7 +69,7 @@ export default class App extends Component {
               // incrementPage={this.incrementPage}
               // decrementPage={this.decrementPage}
             />
-            <Route path="/todolist" component={TodoList} />
+            <Route path="/todolist" component={TodoList} onChange={this.handleChange}/>
           </Switch>
         </main>
       </div>
