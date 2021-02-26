@@ -30,13 +30,4 @@ const getTodoById = async (req, res) => {
   }
 }
 
-// const updateTodo = async (req, res) => {
-//   try {
-//     const {id} = req.params
-//     await
-//   } catch (error) {
-//     res.json(error)
-//   }
-// }
-
 module.exports = { createTodoItem, getAllTodos, getTodoById }
