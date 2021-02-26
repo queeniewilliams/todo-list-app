@@ -14,9 +14,13 @@ export default class Home extends Component {
             width="250px"
             height="250px"
           />
-          <button className="signupBtn" onClick={this.props.openModal}>
+          <NavLink
+            className="signupBtn"
+            to="/signup"
+            style={{ textDecoration: 'none', color: 'black' }}
+          >
             TRY FOR FREE
-          </button>
+          </NavLink>
 
           <NavLink
             className="loginBtn"

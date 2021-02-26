@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import TodoList from './pages/TodoList'
 import LogIn from './pages/LogIn'
-import { Modal } from 'react-bootstrap'
 import axios from 'axios'
 
 export default class App extends Component {
@@ -15,30 +14,7 @@ export default class App extends Component {
       currentPage: 0,
       name: '',
       email: '',
-      password: '',
-      show: false
-    }
-  }
-  openModal() {
-    console.log('show')
-    this.setState({ show: true })
-  }
-
-  closeModal() {
-    this.setState({ show: false })
-  }
-
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  login = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:3001/api/user?email=${this.state.email}&password=${this.state.password}`
-      )
-    } catch {
-      console.log('error')
+      password: ''
     }
   }
 
@@ -61,7 +37,7 @@ export default class App extends Component {
               openModal={this.openModal}
               closeModal={this.closeModal}
             />
-            <Route path="/login" component={LogIn} login={this.login} />
+            <Route path="/login" component={LogIn} />
             <Route
               path="/signup"
               component={SignUp}

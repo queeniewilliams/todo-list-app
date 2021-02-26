@@ -1,45 +1,45 @@
 import React, { Component } from 'react'
 import Form from '../components/Form'
+import axios from 'axios'
 export default class TodoList extends Component {
-    constructor(){
-        super()
-        this.state= {
-            newTodo: "",
-            todoList: []
-        }
+  constructor() {
+    super()
+    this.state = {
+      newTodo: '',
+      todoList: []
     }
+  }
 
-    handleChange= (event) =>{
-        console.log(event.target.value)
-        this.setState({newTodo: event.target.value })
+  handleChange = (event) => {
+    console.log(event.target.value)
+    this.setState({ newTodo: event.target.value })
+  }
+
+  handleSubmit = async () => {
+    try {
+      //axios call
+      let response = await axios.get()
+    } catch (error) {
+      console.log(error)
     }
-    
+  }
 
-    handleSubmit= async () =>{
-        try{
-            //axios call 
-            let response = await axios.get()
-        } catch (error){
-            console.log(error)
-        }
-    } 
-
-render() {
+  render() {
     console.log(this.state.newTodo)
-    return( 
-        <div> 
+    return (
+      <div>
         <h1>todolist</h1>
-        <form onSubmit= {this.handleSubmit}>
-            <input
+        <form onSubmit={this.handleSubmit}>
+          <input
             type="text"
             name="todo"
             placeholder="add todo here"
             value={this.state.newTodo}
             onChange={this.handleChange}
-            />
-            <button>Submit</button>
+          />
+          <button>Submit</button>
         </form>
-    </div>
+      </div>
     )
-}
+  }
 }
