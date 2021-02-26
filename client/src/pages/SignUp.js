@@ -14,14 +14,21 @@ export default class SignUp extends Component {
     } = this.props
     return (
       <div>
-        <UserInfo
-          currentPage={currentPage}
-          handleChange={handleChange}
-          incrementPage={incrementPage}
-          decrementPage={decrementPage}
-          name={name}
-          email={email}
+        <img
+          className="signupbg"
+          src="https://i.ibb.co/b3BgwVt/Screen-Shot-2021-02-25-at-10-54-32-PM.png"
+          width="100%"
         />
+        <div className="signupform">
+          <UserInfo
+            currentPage={currentPage}
+            handleChange={handleChange}
+            incrementPage={incrementPage}
+            decrementPage={decrementPage}
+            name={name}
+            email={email}
+          />
+        </div>
       </div>
     )
   }

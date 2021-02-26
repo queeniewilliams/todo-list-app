@@ -5,6 +5,8 @@ import UserInfo from '../components/UserInfo'
 
 export default class Home extends Component {
   render() {
+    const { name, email, handleChange } = this.props
+
     return (
       <div>
         <header>
@@ -55,15 +57,119 @@ export default class Home extends Component {
               CREATE YOUR TO-DO-LIST
             </NavLink>
           </section>
+
+          <img
+            className="img1"
+            src="https://i.ibb.co/R6SFXKm/Ik7-FGk1-GZp-ER-ACVndfxc-Az-Pt-1-446166s-1.jpg"
+            width="650px"
+            height="600px"
+          />
           <section className="section2">
-            <img
-              className="img1"
-              src="https://poster-images.ustudio.com/Ik7FGk1GZpER-ACVndfxcAzPt-1.446166s.jpg"
-              width="1000px"
-              height="700px"
-            />
+            <h3>Prioritize your work</h3>
+            <p>
+              From major milestones to the tiniest tasks, manage all your tasks
+              in Teamwork so you can plan and prioritize work. Assign owners,
+              due dates and estimated time – so everyone knows what to tackle
+              and when.
+            </p>
+          </section>
+          <section className="section3">
+            <h3>Collaborate effectively</h3>
+            <p>
+              Work together with context, transparency, and accountability. With
+              increased visibility and improved communication, you can keep
+              collaboration at the core of everything you do.
+            </p>
+          </section>
+          <img
+            className="img2"
+            src="https://www.innovationtraining.org/wp-content/uploads/2020/03/Remote-Working-Software-Tools-600x300.jpeg"
+            width="600px"
+          />
+          <img
+            className="img3"
+            src="https://www.aira.net/2015/wp-content/uploads/2019/08/how-to-visualise-data-digital-pr.png"
+            width="600px"
+          />
+          <section className="section4">
+            <h3>Visualise your tasks</h3>
+            <p>
+              Get at-a-glance overviews of where your work stands with
+              Boardview. Move tasks through stages to track progress and spot
+              bottlenecks easily.
+            </p>
           </section>
         </main>
+        <footer>
+          <div>
+            <ul>
+              <li>
+                <NavLink
+                  to="/signup"
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  SIGN UP
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/login"
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  LOG IN
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/todolist"
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  TO-DO LIST
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to=""
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  ABOUT
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <form className="contact">
+              <h4>GET IN TOUCH</h4>
+              NAME:
+              <br></br>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+              />
+              <br></br>
+              <br></br>
+              EMAIL:
+              <br></br>
+              <input type="text" value={email} onChange={handleChange} />
+              <br></br>
+              <br></br>
+              MESSAGE:
+              <br></br>
+              <input
+                type="text"
+                name="message"
+                value={email}
+                onChange={handleChange}
+                style={{ padding: '100px' }}
+              />
+              <br></br>
+              <br></br>
+              <button className="submit">SUBMIT</button>
+            </form>
+          </div>
+        </footer>
       </div>
     )
   }
