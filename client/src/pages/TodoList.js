@@ -22,7 +22,7 @@ export default class TodoList extends Component {
         const response = await axios.get('http://localhost:3001/api/todos')
         console.log(response)
         } catch (error) {
-         console.log('error')
+        console.log('error')
         }
     }
 
@@ -37,11 +37,13 @@ export default class TodoList extends Component {
     
 
     handleSubmit= async () =>{
+        e.preventDefault()
         try{
             console.log('submitted firing off')
             //axios call 
             let response = await axios.post('http://localhost:3001/api/todos')
             console.log(response)
+            return response
         } catch (error){
             console.log(error)
         }
