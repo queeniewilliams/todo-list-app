@@ -14,12 +14,9 @@ export default class UserInfo extends Component {
 
     return (
       <div className="info">
-        <header>
-          <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
-            HOME
-          </NavLink>
-        </header>
         <h1>Sign Up</h1>
+        <br></br>
+        <br></br>
         <form>
           <input
             type="text"
@@ -37,16 +34,18 @@ export default class UserInfo extends Component {
             value={email}
             onChange={handleChange}
           />
-        </form>
-        <br></br>
-        <div>
+          <br></br>
+          <br></br>
           <NavLink
             to="/todolist"
             style={{ textDecoration: 'none', color: 'black' }}
           >
-            SIGN UP
+            <button className="signupBtn2">SIGN UP</button>
           </NavLink>
-        </div>
+          <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
+            <button className="closeBtn">Close</button>
+          </NavLink>
+        </form>
       </div>
     )
   }
