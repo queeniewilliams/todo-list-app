@@ -35,7 +35,8 @@ export default class TodoList extends Component {
     e.preventDefault()
     try {
       let response = await axios.post('http://localhost:3001/api/todos/add', {
-        listItem: this.state.listItem
+        listItem: this.state.listItem,
+        deadline: this.state.deadline
       })
       const newArray = this.state.todoList
       newArray.push({
