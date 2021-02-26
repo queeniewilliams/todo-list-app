@@ -3,7 +3,7 @@ import axios from 'axios'
 import ListItem from '../components/ListItem'
 import Footer from '../components/Footer'
 import { NavLink } from 'react-router-dom'
-import BASE_URL from '../globals'
+import { BASE_URL } from '../globals'
 
 export default class TodoList extends Component {
   constructor() {
