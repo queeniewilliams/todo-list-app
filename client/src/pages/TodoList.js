@@ -18,7 +18,7 @@ export default class TodoList extends Component {
     handleSubmit= async () =>{
         try{
             //axios call 
-            let response 
+            let response = await axios.get()
         } catch (error){
             console.log(error)
         }
