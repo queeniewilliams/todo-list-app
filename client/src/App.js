@@ -14,7 +14,6 @@ export default class App extends Component {
       currentPage: 0,
       name: '',
       email: '',
-      password: ''
     }
   }
 
@@ -44,7 +43,7 @@ export default class App extends Component {
               // incrementPage={this.incrementPage}
               // decrementPage={this.decrementPage}
             />
-            <Route path="/todolist" component={TodoList} />
+            <Route path="/todolist" component={TodoList} onChange={this.handleChange}/>
           </Switch>
         </main>
       </div>
