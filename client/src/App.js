@@ -5,18 +5,19 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import TodoList from './pages/TodoList'
 
-function App() {
-  return (
-    <div className="App">
-      <main>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/todolist" component={TodoList} />
-        </Switch>
-      </main>
-    </div>
-  )
+export default class App extends Component {
+  render (){
+    return (
+      <div className="App">
+        <main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/todolist" component={TodoList} />
+          </Switch>
+        </main>
+      </div>
+    )
+  }
 }
 
-export default App
