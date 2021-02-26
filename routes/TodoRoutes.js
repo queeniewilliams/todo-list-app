@@ -1,11 +1,10 @@
-const { Router } = require('express')
-const router = Router()
+const Router = require('express').Router()
 const controller = require('../controllers/TodolistController')
 
-router.get('/todos', controller.getAllTodos)
+Router.get('/todos', controller.getAllTodos)
 
-router.get('/todos/:id', controller.getTodoById)
+Router.get('/todos/:id', controller.getTodoById)
 
-router.post('/todos', controller.createTodoItem)
+Router.post('/todos', controller.createTodoItem)
 
-module.exports = router
+module.exports = Router
