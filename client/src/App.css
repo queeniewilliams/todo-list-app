@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+header {
+  position: relative;
+}
+.logo {
+  position: absolute;
+  right: 87%;
+  top: -50px;
+}
+.signupBtn {
+  font-weight: bold;
+  position: absolute;
+  left: 85%;
+  background-color: orange;
+  padding: 20px;
+  border-radius: 100px;
+  width: 150px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.todoBtn {
+  font-weight: bold;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  background-color: orange;
+  padding: 20px;
+  border-radius: 10px;
+}
+.mainimg {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  z-index: -1;
+}
+.loginBtn {
+  position: absolute;
+  top: 80%;
+  left: 78%;
+  padding: 20px;
+}
+h2 {
+  font-size: 50px;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  text-align: left;
+}
+.img1 {
+  position: absolute;
+  top: 100%;
+  left: 40%;
+}
