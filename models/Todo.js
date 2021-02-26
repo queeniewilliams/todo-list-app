@@ -3,9 +3,8 @@ const Schema = mongoose.Schema
 
 const Todo = new Schema(
   {
-    listItem: [{ type: String, required: true }],
-    deadline: { type: String, required: true },
-    userId: { type: Schema.Types.ObjectId, ref: 'users' }
+    listItem: { type: String, required: true }
+    // deadline: { type: String, required: false }
   },
   {
     timestamps: true
