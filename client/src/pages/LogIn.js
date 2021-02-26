@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default class SignUp extends Component {
   render() {
-    const { email, password, handleChange, currentPage } = this.props
+    const { email, password, handleChange, currentPage, login } = this.props
     return (
       <div>
         <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
@@ -15,7 +15,7 @@ export default class SignUp extends Component {
           />
         </NavLink>
         <h1>Sign In</h1>
-        <form>
+        <form onSubmit={login}>
           <input
             type="text"
             name="email"
@@ -32,16 +32,16 @@ export default class SignUp extends Component {
             value={password}
             onChange={handleChange}
           />
+          <br></br>
+          <div>
+            {/* <NavLink
+              to="/todolist"
+              style={{ textDecoration: 'none', color: 'black' }}
+            > */}
+            <button>SIGN IN</button>
+            {/* </NavLink> */}
+          </div>
         </form>
-        <br></br>
-        <div>
-          <NavLink
-            to="/todolist"
-            style={{ textDecoration: 'none', color: 'black' }}
-          >
-            SIGN IN
-          </NavLink>
-        </div>
       </div>
     )
   }
