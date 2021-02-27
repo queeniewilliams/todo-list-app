@@ -17,7 +17,7 @@ export default class TodoList extends Component {
 
   getAllTodos = async () => {
     try {
-      const response = await axios.get(BASE_URL)
+      const response = await axios.get(`${BASE_URL}/api/todos`)
     } catch (error) {
       console.log('error')
     }
@@ -35,7 +35,7 @@ export default class TodoList extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      let response = await axios.post(BASE_URL, {
+      let response = await axios.post(`${BASE_URL}/api/todos/add`, {
         listItem: this.state.listItem,
         deadline: this.state.deadline
       })
